@@ -1,105 +1,236 @@
+:root {
+  --bg-pulse-color: #FF0055;
+}
+
 .preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    color: white;
-    font-family: 'Poppins', sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0e17;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.gradient-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, var(--bg-pulse-color), #0a0e17);
+  opacity: 0.3;
+}
+
+.particle-explosion {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.explosion-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+.cosmic-shape-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 4rem;
+  perspective: 1000px;
+}
+
+.cosmic-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  filter: blur(1px);
+}
+
+.hypercube {
+  clip-path: polygon(
+    20% 20%, 80% 20%, 80% 80%, 20% 80%
+  );
+}
+
+.star {
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+}
+
+.spiral {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 30deg,
+    currentColor 30deg 60deg,
+    transparent 60deg 90deg,
+    currentColor 90deg 120deg,
+    transparent 120deg 150deg,
+    currentColor 150deg 180deg,
+    transparent 180deg 210deg,
+    currentColor 210deg 240deg,
+    transparent 240deg 270deg,
+    currentColor 270deg 300deg,
+    transparent 300deg 330deg,
+    currentColor 330deg 360deg
+  );
+  border-radius: 50%;
+}
+
+.nebula {
+  background: radial-gradient(
+    circle at center,
+    currentColor 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+}
+
+.title-container {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.main-title {
+  font-size: 5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 1.5rem;
+  letter-spacing: 4px;
+  line-height: 1.2;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+}
+
+.title-word {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.energy-wave-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.energy-wave {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 120px;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  gap: 4px;
+}
+
+.wave-segment {
+  width: 10px;
+  min-height: 5px;
+  border-radius: 5px 5px 0 0;
+  opacity: 0.4;
+  filter: blur(1px);
+}
+
+.progress-percent {
+  font-size: 2rem;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.cosmic-dust {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.dust-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  filter: blur(0.5px);
+}
+
+.radial-pulse {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid;
+  opacity: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .main-title {
+    font-size: 3.5rem;
   }
   
-  .preloader-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    width: 100%;
-    max-width: 500px;
-    padding: 2rem;
-    text-align: center;
+  .cosmic-shape-container {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
   }
   
-  .logo-container {
-    position: relative;
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 3px;
+  }
+  
+  .cosmic-shape-container {
     width: 100px;
     height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   
-  .logo {
-    font-size: 4rem;
-    font-weight: 700;
-    color: #fff;
-    z-index: 2;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  .energy-wave {
+    height: 80px;
   }
   
-  .logo-circle {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 3px solid #e94560;
-    border-top-color: transparent;
-    animation: rotate 2s linear infinite;
-    z-index: 1;
+  .progress-percent {
+    font-size: 1.5rem;
   }
-  
-  .loading-text {
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 0;
-    background: linear-gradient(90deg, #fff, #e94560);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  
-  .progress-container {
-    width: 80%;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    margin: 1rem 0;
-  }
-  
-  .progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, #e94560, #ff7b9c);
-    border-radius: 10px;
-    position: relative;
-    transition: width 0.3s ease;
-  }
-  
-  .progress-text {
-    position: absolute;
-    right: 0;
-    top: -25px;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  .quote {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-style: italic;
-    margin: 0;
-  }
-  
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+}
