@@ -43,7 +43,7 @@ const Preloader = () => {
             delay: 0.2
           }}
         >
-          <div className="logo">T</div>
+          <div className="logo">L</div>
           <div className="logo-circle"></div>
         </motion.div>
         
@@ -53,7 +53,7 @@ const Preloader = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          Teja's Portfolio
+          Leela's Portfolio
         </motion.h1>
         
         <motion.div 
