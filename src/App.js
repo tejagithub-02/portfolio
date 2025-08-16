@@ -1,26 +1,39 @@
-import { useState, useEffect } from 'react';
+// App.jsx
+import React, { useEffect, useState } from 'react';
+import './App.css';
 import Preloader from './components/Preloader';
+import PortfolioPage from './components/PortfolioPage';
+import Projects from './components/Projects';
+import AboutUs from './components/AboutUs';
+import Services from './components/Services';
+import Contact from './components/Contact';
 
-function App() {
-  const [isLoading, setIsLoading] = useState(true);
+const App = () => {
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading completion
     const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3500); // Adjust time as needed
-    
+      setLoading(false);
+    }, 2000);
+
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="App">
-      {isLoading ? <Preloader /> : (
-        // Your portfolio content goes here
-        <></>
+    <>
+      {loading ? (
+        <Preloader />
+      ) : (
+        <div className="app">
+          <PortfolioPage />
+         <Projects/>
+         <AboutUs/>
+         <Services/>
+         <Contact/>
+        </div>
       )}
-    </div>
+    </>
   );
-}
+};
 
 export default App;
